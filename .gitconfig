@@ -18,7 +18,7 @@
     remote = origin
     merge = refs/heads/master
 [gdif]
-    ignore = *.gdio.diff
+    ignore = ./install.sh
 [vrun]
 	silent = false
 	async = false
