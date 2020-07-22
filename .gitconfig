@@ -19,6 +19,7 @@
     merge = refs/heads/master
 [gdif]
     ignore = ./install.sh
+    ignore = ./run.sh
 [vrun]
 	silent = false
 	async = false
