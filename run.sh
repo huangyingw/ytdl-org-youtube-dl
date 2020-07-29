@@ -7,7 +7,7 @@ cd "$SCRIPTPATH"
     -f 'bestvideo+bestaudio' \
     -o '~/Dropbox/learning/AI/fast.ai/%(title)s.%(ext)s' \
     --restrict-filenames \
-    --write-sub \
+    --write-auto-sub \
     https://youtu.be/XfoYk_Z5AkI \
     https://youtu.be/ccMHJeQU4Qw \
     https://youtu.be/MpZxV6DVsmM \
