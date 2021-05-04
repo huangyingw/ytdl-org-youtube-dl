@@ -1,4 +1,5 @@
-[![Build Status](https://travis-ci.org/ytdl-org/youtube-dl.svg?branch=master)](https://travis-ci.org/ytdl-org/youtube-dl)
+[![Build Status](https://github.com/ytdl-org/youtube-dl/workflows/CI/badge.svg)](https://github.com/ytdl-org/youtube-dl/actions?query=workflow%3ACI)
+
 
 youtube-dl - download videos from youtube.com or other video platforms
 
@@ -371,7 +372,7 @@ Alternatively, refer to the [developer instructions](#developer-instructions) fo
                                      out, youtube-dl will ask interactively.
     -2, --twofactor TWOFACTOR        Two-factor authentication code
     -n, --netrc                      Use .netrc authentication data
-    --video-password PASSWORD        Video password (vimeo, smotri, youku)
+    --video-password PASSWORD        Video password (vimeo, youku)
 
 ## Adobe Pass Options:
     --ap-mso MSO                     Adobe Pass multiple-system operator (TV
@@ -545,7 +546,7 @@ The basic usage is not to set any template arguments when downloading a single f
  - `extractor` (string): Name of the extractor
  - `extractor_key` (string): Key name of the extractor
  - `epoch` (numeric): Unix epoch when creating the file
- - `autonumber` (numeric): Five-digit number that will be increased with each download, starting at zero
+ - `autonumber` (numeric): Number that will be increased with each download, starting at `--autonumber-start`
  - `playlist` (string): Name or id of the playlist that contains the video
  - `playlist_index` (numeric): Index of the video in the playlist padded with leading zeros according to the total length of the playlist
  - `playlist_id` (string): Playlist identifier
@@ -582,7 +583,7 @@ Available for the media that is a track or a part of a music album:
  - `disc_number` (numeric): Number of the disc or other physical medium the track belongs to
  - `release_year` (numeric): Year (YYYY) when the album was released
 
-Each aforementioned sequence when referenced in an output template will be replaced by the actual value corresponding to the sequence name. Note that some of the sequences are not guaranteed to be present since they depend on the metadata obtained by a particular extractor. Such sequences will be replaced with `NA`.
+Each aforementioned sequence when referenced in an output template will be replaced by the actual value corresponding to the sequence name. Note that some of the sequences are not guaranteed to be present since they depend on the metadata obtained by a particular extractor. Such sequences will be replaced with placeholder value provided with `--output-na-placeholder` (`NA` by default).
 
 For example for `-o %(title)s-%(id)s.%(ext)s` and an mp4 video with title `youtube-dl test video` and id `BaW_jenozKcj`, this will result in a `youtube-dl test video-BaW_jenozKcj.mp4` file created in the current directory.
 
@@ -677,6 +678,7 @@ Also filtering work for comparisons `=` (equals), `^=` (starts with), `$=` (ends
  - `container`: Name of the container format
  - `protocol`: The protocol that will be used for the actual download, lower-case (`http`, `https`, `rtsp`, `rtmp`, `rtmpe`, `mms`, `f4m`, `ism`, `http_dash_segments`, `m3u8`, or `m3u8_native`)
  - `format_id`: A short description of the format
+ - `language`: Language code
 
 Any string comparison may be prefixed with negation `!` in order to produce an opposite comparison, e.g. `!*=` (does not contain).
 
@@ -879,7 +881,7 @@ Either prepend `https://www.youtube.com/watch?v=` or separate the ID from the op
 
 Use the `--cookies` option, for example `--cookies /path/to/cookies/file.txt`.
 
-In order to extract cookies from browser use any conforming browser extension for exporting cookies. For example, [cookies.txt](https://chrome.google.com/webstore/detail/cookiestxt/njabckikapfpffapmjgojcnbfjonfjfg) (for Chrome) or [cookies.txt](https://addons.mozilla.org/en-US/firefox/addon/cookies-txt/) (for Firefox).
+In order to extract cookies from browser use any conforming browser extension for exporting cookies. For example, [Get cookies.txt](https://chrome.google.com/webstore/detail/get-cookiestxt/bgaddhkoddajcdgocldbbfleckgcbcid/) (for Chrome) or [cookies.txt](https://addons.mozilla.org/en-US/firefox/addon/cookies-txt/) (for Firefox).
 
 Note that the cookies file must be in Mozilla/Netscape format and the first line of the cookies file must be either `# HTTP Cookie File` or `# Netscape HTTP Cookie File`. Make sure you have correct [newline format](https://en.wikipedia.org/wiki/Newline) in the cookies file and convert newlines if necessary to correspond with your OS, namely `CRLF` (`\r\n`) for Windows and `LF` (`\n`) for Unix and Unix-like systems (Linux, macOS, etc.). `HTTP Error 400: Bad Request` when using `--cookies` is a good sign of invalid newline format.
 
