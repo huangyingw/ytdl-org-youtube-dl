@@ -9,8 +9,6 @@
 [gsync]
     remote = origin
     branch = master
-[merge]
-    allow = true
 [branch "dev"]
     remote = github
     merge = refs/heads/dev
@@ -20,9 +18,6 @@
 [gdif]
     ignore = ./install.sh
     ignore = ./run.sh
-[vrun]
-	silent = false
-	async = false
 [deploy]
 	host = localhost
 	path = ~/myproject/git/tools/ytdl-org-youtube-dl
